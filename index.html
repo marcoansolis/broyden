@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Método de Broyden</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <h1>Método de Broyden</h1>
+        
+        <!-- Configuración inicial del sistema -->
+        <section class="card" id="setup">
+            <h2>1. Escribe tus ecuaciones</h2>
+            <label style="max-width:200px">
+                Número de ecuaciones (n)
+                <input id="n" type="number" min="1" max="8" value="2">
+            </label>
+            <div class="cols">
+                <div id="eqs"></div>
+                <div id="x0s"></div>
+            </div>
+            
+            <h2 style="margin-top:18px">Parámetros del método</h2>
+            <div class="r4">
+                <label>Tolerancia<input id="tol" type="text" value="0.0000001"></label>
+                <label>Iteraciones máx.<input id="max" type="number" min="1" max="200" value="30"></label>
+                <label>Decimales<input id="dec" type="number" min="2" max="12" value="8"></label>
+                <label>
+                    Derivadas iniciales B₀
+                    <select id="jm">
+                        <option value="fd">Diferencias finitas</option>
+                        <option value="id">Identidad</option>
+                    </select>
+                </label>
+            </div>
+            <p id="msg" role="alert"></p>
+        </section>
+        
+        <!-- Resultados e Iteraciones -->
+        <section id="out" hidden>
+            <div class="st" id="st"></div>
+            <div class="card">
+                <h2>2. Recorre las iteraciones</h2>
+                <div class="bar">
+                    <button id="pv">‹</button>
+                    <button id="nx">›</button>
+                    <input id="sl" type="range" min="0" max="1" value="0">
+                    <b id="kl"></b>
+                    <button id="pl">Reproducir</button>
+                </div>
+            </div>
+            
+            <div class="g2">
+                <div class="card">
+                    <h2>Gráfica</h2>
+                    <div id="ch"></div>
+                    <p class="lg" id="lgd"></p>
+                </div>
+                <div>
+                    <div class="card">
+                        <h2>Punto actual</h2>
+                        <div id="p1" class="v"></div>
+                    </div>
+                    <div class="card">
+                        <h2>Derivadas (B y J)</h2>
+                        <div id="p2"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Cómo se obtiene el siguiente paso</h2>
+                <div id="p3"></div>
+            </div>
+            
+            <div class="card">
+                <h2>Historial de iteraciones (toca una fila)</h2>
+                <div class="sc">
+                    <table id="tb"></table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
