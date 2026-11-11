@@ -1,0 +1,256 @@
+:root {
+    --bg: #f3f5f8;
+    --pn: #fff;
+    --ink: #14213d;
+    --mut: #5b6b82;
+    --ln: #d9e0ea;
+    --ac: #0f766e;
+    --ac2: #b45309;
+    --bad: #b91c1c;
+    --hl: #e3f1ef;
+    color-scheme: light;
+    box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --bg: #0f1724;
+        --pn: #17212f;
+        --ink: #e6edf6;
+        --mut: #93a3b8;
+        --ln: #2a384b;
+        --ac: #2dd4bf;
+        --ac2: #f59e0b;
+        --bad: #f87171;
+        --hl: #163536;
+        color-scheme: dark;
+    }
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 15px/1.55 "IBM Plex Sans", system-ui, sans-serif;
+}
+
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 16px 48px;
+}
+
+h1 {
+    font-size: 28px;
+    margin: 0 0 16px;
+}
+
+h2 {
+    font-size: 15px;
+    margin: 0 0 10px;
+}
+
+.card {
+    background: var(--pn);
+    border: 1px solid var(--ln);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+button {
+    font: 600 14px "IBM Plex Sans", sans-serif;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 8px 14px;
+    border: 1px solid var(--ln);
+    background: var(--pn);
+    color: var(--ink);
+}
+
+button:hover {
+    border-color: var(--ac);
+}
+
+button.on {
+    background: var(--ac);
+    color: var(--pn);
+    border-color: var(--ac);
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    color: var(--mut);
+    margin-top: 10px;
+}
+
+input, select {
+    width: 100%;
+    margin-top: 3px;
+    padding: 8px 10px;
+    border: 1px solid var(--ln);
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--ink);
+    font: 14px "IBM Plex Mono", monospace;
+}
+
+.cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 16px;
+}
+
+@media (max-width: 700px) {
+    .cols {
+        grid-template-columns: 1fr;
+    }
+}
+
+.r4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+}
+
+#msg {
+    color: var(--bad);
+    font-size: 13.5px;
+    margin: 8px 0 0;
+    min-height: 1em;
+}
+
+.st {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border-left: 4px solid var(--ac2);
+    background: var(--pn);
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.st.ok {
+    border-color: var(--ac);
+    background: var(--hl);
+}
+
+.bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.bar input[type=range] {
+    flex: 1;
+    min-width: 140px;
+    padding: 0;
+    accent-color: var(--ac);
+    border: 0;
+    background: none;
+}
+
+.bar b {
+    min-width: 130px;
+}
+
+.g2 {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 16px;
+    align-items: start;
+}
+
+@media (max-width: 860px) {
+    .g2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.sc {
+    overflow-x: auto;
+}
+
+table {
+    border-collapse: collapse;
+    font: 13px "IBM Plex Mono", monospace;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid var(--ln);
+    padding: 5px 8px;
+    text-align: left;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+th {
+    background: var(--hl);
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+#tb tr[data-k] {
+    cursor: pointer;
+}
+
+#tb tr.cur td {
+    background: var(--hl);
+    font-weight: 500;
+}
+
+table.m {
+    width: auto;
+    display: inline-table;
+    margin: 2px 8px 8px 0;
+}
+
+svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+svg text {
+    font: 11px "IBM Plex Mono", monospace;
+    fill: var(--mut);
+}
+
+svg .lb {
+    fill: var(--ink);
+}
+
+svg .g {
+    stroke: var(--ln);
+    stroke-width: 1;
+}
+
+svg .ax {
+    stroke: var(--mut);
+    stroke-width: 1.2;
+}
+
+.lg {
+    font-size: 12.5px;
+    color: var(--mut);
+    margin: 6px 0 0;
+}
+
+.p {
+    color: var(--mut);
+    font-size: 13px;
+    margin: 8px 0 2px;
+}
+
+.p b {
+    color: var(--ink);
+}
+
+.v {
+    font: 13px "IBM Plex Mono", monospace;
+}
